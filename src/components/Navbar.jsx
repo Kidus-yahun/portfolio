@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { siteConfig } from '../config/site';
+import { Terminal } from 'lucide-react';
 
-export default function Navbar() {
+export default function Navbar({ onOpenTerminal }) {
   const [isVisible, setIsVisible] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const lastScrollY = useRef(0);
@@ -135,13 +136,28 @@ export default function Navbar() {
             </a>
           </nav>
 
-          {/* Availability Status */}
-          <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md text-[11px] font-mono tracking-wider text-gray-300">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 animate-halo" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-            </span>
-            <span>Available</span>
+          {/* Right Action Group: CLI & Availability */}
+          <div className="flex items-center gap-2.5">
+            <button
+              type="button"
+              onClick={onOpenTerminal}
+              data-magnetic="0.2"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#ff5c3d]/30 bg-[#ff5c3d]/10 hover:bg-[#ff5c3d]/20 text-[#ff7a5f] hover:text-white text-[11px] font-mono tracking-wider transition-all cursor-pointer"
+              title="Open Terminal Shell (~ or Ctrl+K)"
+            >
+              <Terminal className="w-3.5 h-3.5 text-[#ff5c3d]" />
+              <span>CLI</span>
+              <kbd className="hidden md:inline text-[9px] px-1 py-0.2 rounded bg-white/10 text-gray-300 font-mono">~</kbd>
+            </button>
+
+            {/* Availability Status */}
+            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md text-[11px] font-mono tracking-wider text-gray-300">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 animate-halo" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+              </span>
+              <span>Available</span>
+            </div>
           </div>
         </div>
       </header>
