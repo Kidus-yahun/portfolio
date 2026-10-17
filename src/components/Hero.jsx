@@ -49,7 +49,11 @@ export default function Hero({ ready = true }) {
         <div className="relative z-20 mt-8 md:mt-16 flex flex-col items-center text-center max-w-xl px-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md text-xs font-mono text-gray-300 mb-4">
             <Sparkles className="w-3.5 h-3.5 text-[#ff5c3d]" />
-            <span>{siteConfig.name} · {siteConfig.alias}</span>
+            <span className="font-semibold text-white">{siteConfig.alias}</span>
+            <span className="text-white/40">·</span>
+            <span className="text-[#ff7a5f]">Creative Developer</span>
+            <span className="text-white/40">·</span>
+            <span>Cyber Labs & Full-Stack</span>
           </div>
 
           <p className="text-gray-300 text-sm md:text-base font-light leading-relaxed mb-8">

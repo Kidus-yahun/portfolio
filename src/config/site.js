@@ -5,15 +5,15 @@ export const siteConfig = {
   alias: "K_D",
   wordmark: "KIDUS", // Fired into place by the Ballista launcher (pivot is 'I')
   role: {
-    bold: "Cybersecurity & Full-Stack",
-    light: "Developer"
+    bold: "Creative Developer",
+    light: "& Cyber Builder"
   },
   available: true,
-  status: "Available for Security & Full-Stack builds",
-  philosophy: "Spot the gaps, engineer the defense, build for impact.",
+  status: "Available for Creative & Full-Stack projects",
+  philosophy: "Design with imagination, code with precision, build with security.",
   bio: [
-    "I engineer AI defense systems, cybersecurity solutions, and resilient full-stack applications with an ethical-first mindset.",
-    "Specialized in AI phishing detection engines, Python/Django architectures, cross-platform Flutter apps, and civic tech."
+    "I am a creative developer who crafts visually engaging, interactive digital experiences and resilient full-stack systems.",
+    "While I actively learn and ship projects in cybersecurity and AI defense, I'm not just a cyber guy—I'm fundamentally a creative developer who fuses visual craft, interactive code, and a deep security mindset."
   ],
   email: "yahunsewkidus@gmail.com",
   location: "Ethiopia 🇪🇹 · Open to Worldwide Remote",
@@ -26,34 +26,34 @@ export const siteConfig = {
   services: [
     {
       id: "01",
-      title: "Cybersecurity & AI Phishing Defense",
-      description: "Real-time threat heuristics, typosquatting algorithms, email forensics, and Manifest V3 security extensions powered by NLP and threat intelligence.",
-      tags: ["Threat Forensics", "MV3", "NLP / AI", "Typosquatting", "Kali Linux", "Bash"]
+      title: "Creative Development & Interactive UI",
+      description: "Fluid web experiences, WebGL canvases, micro-interactions, and creative frontend interfaces that turn complex technology into intuitive, memorable interactions.",
+      tags: ["Creative Dev", "WebGL / Canvas", "React 19", "GSAP & Motion", "Tailwind CSS", "UI/UX"]
     },
     {
       id: "02",
+      title: "Cybersecurity Labs & AI Threat Defense",
+      description: "Continuous learning and real-world security engineering: developing real-time AI phishing detection engines, Manifest V3 extensions, threat heuristics, and vulnerability research.",
+      tags: ["Threat Forensics", "MV3 Extensions", "NLP / AI Defense", "Typosquatting Heuristics", "Kali Linux", "Bash"]
+    },
+    {
+      id: "03",
       title: "Full-Stack Web & Backend Engineering",
       description: "High-throughput backend architectures, RESTful APIs, and scalable databases built with Python, Django, TypeScript, MongoDB, and MySQL.",
       tags: ["Python", "Django", "TypeScript", "Node.js", "MySQL", "MongoDB"]
     },
     {
-      id: "03",
-      title: "Cross-Platform Mobile Apps (Flutter)",
-      description: "Native-fidelity iOS & Android applications with offline-first synchronization, map integrations, and seamless user experiences.",
-      tags: ["Flutter", "Dart", "State Management", "REST APIs", "Map SDKs"]
-    },
-    {
       id: "04",
-      title: "Civic Tech & Educational Platforms",
-      description: "Building software that creates real-world social impact—from automated transit logistics and route planning to nationwide exam preparation systems.",
-      tags: ["Civic Tech", "EdTech", "GIS Routing", "System Design"]
+      title: "Cross-Platform Mobile & Civic Platforms",
+      description: "Native-fidelity Flutter apps and real-world impact software—from automated transit logistics and route planning to nationwide Grade 12 educational assessment platforms.",
+      tags: ["Flutter", "Dart", "Civic Tech", "EdTech", "GIS Routing", "System Design"]
     }
   ],
   projects: [
     {
       id: "01",
       title: "Anti-Phish Defense Engine",
-      category: "Cybersecurity · AI / NLP · MV3",
+      category: "Cybersecurity Lab · AI / NLP · MV3",
       year: "2026",
       image: `${base}projects/ecommerce.jpg`,
       description: "Real-time browser extension that neutralizes phishing vectors using NLP, domain homoglyph checking, and live email forensics.",
@@ -62,7 +62,7 @@ export const siteConfig = {
     {
       id: "02",
       title: "Ethio-Matrix",
-      category: "EdTech · Python & Django",
+      category: "EdTech & Full-Stack · Python & Django",
       year: "2026",
       image: `${base}projects/expense.jpg`,
       description: "National Grade 12 educational assessment platform designed to deliver rapid test generation, analytics, and study aids.",
@@ -89,6 +89,6 @@ export const siteConfig = {
   ],
   play: {
     headline: ["Break it", "if you can."],
-    caption: "Spot the gaps, engineer the defense. Interactive physics headline."
+    caption: "Creative development meets a hacker's curiosity. Interactive physics headline."
   }
 };

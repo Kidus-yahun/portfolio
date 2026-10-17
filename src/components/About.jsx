@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { siteConfig } from '../config/site';
-import { ShieldCheck, Terminal, Smartphone, Globe } from 'lucide-react';
+import { Sparkles, ShieldCheck, Terminal, Globe } from 'lucide-react';
 import officialIcons from '../config/officialIcons.json';
 
 export default function About() {
@@ -52,11 +52,26 @@ export default function About() {
       ref={sectionRef}
       className="relative min-h-[80vh] flex flex-col justify-center py-28 md:py-36 px-6 md:px-16 max-w-6xl mx-auto"
     >
-      <div className="flex items-center gap-3 mb-8">
-        <span className="w-2 h-2 rounded-full bg-[#ff5c3d]" />
-        <span className="text-xs font-mono uppercase tracking-[0.28em] text-gray-500">
-          Profile / Philosophy
-        </span>
+      <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
+        <div className="flex items-center gap-3">
+          <span className="w-2 h-2 rounded-full bg-[#ff5c3d]" />
+          <span className="text-xs font-mono uppercase tracking-[0.28em] text-gray-500">
+            Profile / Philosophy
+          </span>
+        </div>
+
+        {/* Identity Badges */}
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="px-3 py-1 rounded-full text-[11px] font-mono tracking-wider uppercase bg-[#ff5c3d]/10 border border-[#ff5c3d]/30 text-[#ff7a5f]">
+            Creative Developer
+          </span>
+          <span className="px-3 py-1 rounded-full text-[11px] font-mono tracking-wider uppercase bg-white/[0.03] border border-white/10 text-gray-400">
+            Cybersecurity Learner & Builder
+          </span>
+          <span className="px-3 py-1 rounded-full text-[11px] font-mono tracking-wider uppercase bg-white/[0.03] border border-white/10 text-gray-400">
+            Full-Stack Core
+          </span>
+        </div>
       </div>
 
       {/* Quote Banner */}
@@ -95,10 +110,18 @@ export default function About() {
       {/* Focus Pillars Bento */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 pt-10 border-t border-white/10 text-xs font-mono">
         <div className="flex flex-col gap-2 p-5 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm hover:border-[#ff5c3d]/30 transition-colors">
-          <ShieldCheck className="w-5 h-5 text-[#ff5c3d] mb-1" />
-          <span className="text-sm font-sans font-bold text-white">Cybersecurity</span>
+          <Sparkles className="w-5 h-5 text-[#ff5c3d] mb-1" />
+          <span className="text-sm font-sans font-bold text-white">Creative Dev</span>
           <p className="text-gray-400 font-sans text-xs">
-            AI anti-phishing engines, NLP threat forensics & ethical hacking.
+            Interactive web experiences, fluid motion, WebGL canvases & expressive UI design.
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-2 p-5 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm hover:border-[#ff5c3d]/30 transition-colors">
+          <ShieldCheck className="w-5 h-5 text-[#ff5c3d] mb-1" />
+          <span className="text-sm font-sans font-bold text-white">Cyber Labs & Defense</span>
+          <p className="text-gray-400 font-sans text-xs">
+            Continuous learning & real builds: AI phishing engines, MV3 extensions & threat heuristics.
           </p>
         </div>
 
@@ -106,23 +129,15 @@ export default function About() {
           <Terminal className="w-5 h-5 text-[#ff5c3d] mb-1" />
           <span className="text-sm font-sans font-bold text-white">Full-Stack Core</span>
           <p className="text-gray-400 font-sans text-xs">
-            Python & Django architectures, scalable APIs, MySQL & MongoDB.
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-2 p-5 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm hover:border-[#ff5c3d]/30 transition-colors">
-          <Smartphone className="w-5 h-5 text-[#ff5c3d] mb-1" />
-          <span className="text-sm font-sans font-bold text-white">Mobile Engineering</span>
-          <p className="text-gray-400 font-sans text-xs">
-            Cross-platform Flutter & Dart apps with offline sync & mapping.
+            Python & Django architectures, scalable REST APIs, MySQL & MongoDB.
           </p>
         </div>
 
         <div className="flex flex-col gap-2 p-5 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm hover:border-[#ff5c3d]/30 transition-colors">
           <Globe className="w-5 h-5 text-[#ff5c3d] mb-1" />
-          <span className="text-sm font-sans font-bold text-white">Civic & EdTech</span>
+          <span className="text-sm font-sans font-bold text-white">Mobile & Civic Tech</span>
           <p className="text-gray-400 font-sans text-xs">
-            Transit routing systems & nationwide Grade 12 study platforms.
+            Cross-platform Flutter apps, transit logistics & nationwide education platforms.
           </p>
         </div>
       </div>

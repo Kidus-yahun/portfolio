@@ -32,7 +32,7 @@ export default function Contact() {
           </h2>
 
           <p className="text-gray-400 text-sm md:text-base font-light leading-relaxed max-w-md mb-8">
-            Open for cybersecurity engineering, AI defense engines, Python/Django architectures, and contract collaborations.
+            Open for creative development, interactive web builds, full-stack systems, cybersecurity projects, and innovative contract collaborations.
           </p>
 
           <div className="flex flex-wrap gap-4">
