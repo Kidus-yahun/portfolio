@@ -137,7 +137,7 @@ export default function About() {
           <Globe className="w-5 h-5 text-[#ff5c3d] mb-1" />
           <span className="text-sm font-sans font-bold text-white">Mobile & Civic Tech</span>
           <p className="text-gray-400 font-sans text-xs">
-            Cross-platform Flutter apps, transit logistics & nationwide education platforms.
+            SmartBus Ethiopia booking app with Amharic (አማርኛ) i18n &amp; nationwide EdTech.
           </p>
         </div>
       </div>

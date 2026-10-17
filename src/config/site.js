@@ -45,8 +45,8 @@ export const siteConfig = {
     {
       id: "04",
       title: "Cross-Platform Mobile & Civic Platforms",
-      description: "Native-fidelity Flutter apps and real-world impact software—from automated transit logistics and route planning to nationwide Grade 12 educational assessment platforms.",
-      tags: ["Flutter", "Dart", "Civic Tech", "EdTech", "GIS Routing", "System Design"]
+      description: "Native-fidelity Flutter & web applications with real-world impact—from SmartBus Ethiopia digital transit booking with Amharic (አማርኛ) localization to nationwide Grade 12 educational assessment platforms.",
+      tags: ["Flutter", "FastAPI", "React", "Dart", "Amharic i18n", "QR Ticketing"]
     }
   ],
   projects: [
@@ -70,11 +70,11 @@ export const siteConfig = {
     },
     {
       id: "03",
-      title: "SmartBus Transit Logistics",
-      category: "GIS & Civic Tech · Python",
+      title: "SmartBus Ethiopia",
+      category: "Smart Mobility · FastAPI, React & Flutter",
       year: "2025",
       image: `${base}projects/smartbus.svg`,
-      description: "Map-based urban transit network facilitating real-time commuter station routing and schedule forecasting.",
+      description: "Full-stack bus booking & digital ticketing platform for Addis Ababa commuters. Supports real-time station arrivals, online seat & standing reservations, digital QR tickets, native Flutter mobile app, and full Amharic (አማርኛ) / English localization.",
       link: "https://github.com/Kidus-yahun/Smart-Bus-Booking"
     },
     {

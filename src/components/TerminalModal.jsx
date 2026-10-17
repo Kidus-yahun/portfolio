@@ -189,7 +189,7 @@ export default function TerminalModal({ isOpen, onClose }) {
             },
             {
               title: 'Mobile & Civic Tech',
-              items: ['Flutter', 'Dart', 'GIS Routing Logistics', 'EdTech Systems']
+              items: ['Flutter', 'Dart', 'FastAPI', 'SmartBus Booking', 'Amharic (አማርኛ) i18n', 'QR Tickets']
             }
           ]
         };
