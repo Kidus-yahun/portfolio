@@ -86,9 +86,5 @@ export const siteConfig = {
       description: "High-speed multimodal AI reasoning extension with token extraction, non-blocking parallel consensus, and watchdog latency caps.",
       link: "https://github.com/Kidus-yahun/anser-extension"
     }
-  ],
-  play: {
-    headline: ["Break it", "if you can."],
-    caption: "Creative development meets a hacker's curiosity. Interactive physics headline."
-  }
+  ]
 };

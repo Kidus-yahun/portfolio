@@ -127,13 +127,6 @@ export default function Navbar() {
               Work
             </a>
             <a
-              href="#play"
-              data-magnetic="0.2"
-              className="hover:text-white hover:text-[#ff5c3d] transition-colors"
-            >
-              Play
-            </a>
-            <a
               href="#contact"
               data-magnetic="0.2"
               className="hover:text-white hover:text-[#ff5c3d] transition-colors"

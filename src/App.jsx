@@ -5,7 +5,6 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
 import Project from './components/Project';
-import Ricochet from './components/Ricochet';
 import Contact from './components/Contact';
 import CustomCursor from './components/CustomCursor';
 import { siteConfig } from './config/site';
@@ -51,10 +50,6 @@ export default function App() {
         <About />
         <Services />
         <Project />
-        <Ricochet
-          lines={siteConfig.play.headline}
-          caption={siteConfig.play.caption}
-        />
         <Contact />
       </main>
 
