@@ -33,10 +33,10 @@ export default function Hero({ ready = true }) {
           <ParticleFace
             src={`${import.meta.env.BASE_URL}hero_center.png`}
             thumbs={[
-              `${import.meta.env.BASE_URL}projects/antiphish.svg`,
-              `${import.meta.env.BASE_URL}projects/ethiomatrix.svg`,
-              `${import.meta.env.BASE_URL}projects/smartbus.svg`,
-              `${import.meta.env.BASE_URL}projects/anser.svg`
+              `${import.meta.env.BASE_URL}projects/antiphish.png`,
+              `${import.meta.env.BASE_URL}projects/ethiomatrix.png`,
+              `${import.meta.env.BASE_URL}projects/smartbus.png`,
+              `${import.meta.env.BASE_URL}projects/anser.png`
             ]}
             anchorRef={anchorRef}
             play={ready}

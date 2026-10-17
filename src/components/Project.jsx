@@ -56,7 +56,7 @@ export default function Project() {
                     alt={proj.title}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-105"
+                    className="w-full h-full object-cover object-top rounded-xl transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                 </a>
               </div>
