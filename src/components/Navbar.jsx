@@ -96,7 +96,7 @@ export default function Navbar() {
             className="flex items-center gap-2.5 font-bold tracking-tight text-white group"
           >
             <img
-              src="/logo.png"
+              src={`${import.meta.env.BASE_URL}logo.png`}
               alt="K_D"
               className="h-6 w-auto object-contain group-hover:scale-110 transition-transform"
             />

@@ -24,14 +24,20 @@ export default function Hero({ ready = true }) {
           {/* Fallback image */}
           <img
             ref={anchorRef}
-            src="/hero_center.png"
+            src={`${import.meta.env.BASE_URL}hero_center.png`}
             alt={siteConfig.name}
             className="w-full h-full object-cover rounded-2xl invisible filter contrast-110 drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
           />
 
           {/* WebGL2 Particle Face Canvas */}
           <ParticleFace
-            src="/hero_center.png"
+            src={`${import.meta.env.BASE_URL}hero_center.png`}
+            thumbs={[
+              `${import.meta.env.BASE_URL}projects/ecommerce.jpg`,
+              `${import.meta.env.BASE_URL}projects/expense.jpg`,
+              `${import.meta.env.BASE_URL}projects/habitflow.jpg`,
+              `${import.meta.env.BASE_URL}projects/mindpixel.jpg`
+            ]}
             anchorRef={anchorRef}
             play={ready}
             label={siteConfig.name}

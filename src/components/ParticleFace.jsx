@@ -243,12 +243,12 @@ function samplePortrait(img, width, cropFrac) {
 }
 
 export default function ParticleFace({
-  src = '/hero_center.png',
+  src = `${import.meta.env.BASE_URL}hero_center.png`,
   thumbs = [
-    '/projects/ecommerce.jpg',
-    '/projects/expense.jpg',
-    '/projects/habitflow.jpg',
-    '/projects/mindpixel.jpg'
+    `${import.meta.env.BASE_URL}projects/ecommerce.jpg`,
+    `${import.meta.env.BASE_URL}projects/expense.jpg`,
+    `${import.meta.env.BASE_URL}projects/habitflow.jpg`,
+    `${import.meta.env.BASE_URL}projects/mindpixel.jpg`
   ],
   anchorRef,
   play = true,
