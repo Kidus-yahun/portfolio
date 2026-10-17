@@ -44,16 +44,18 @@ export default function Project() {
       {/* Floating Preview Image (Desktop) */}
       <div
         ref={previewRef}
-        className={`fixed top-0 left-0 w-[300px] h-[200px] sm:w-[360px] sm:h-[240px] rounded-2xl overflow-hidden pointer-events-none z-30 shadow-[0_25px_60px_rgba(0,0,0,0.9)] border border-white/20 transition-opacity duration-300 hidden md:block ${
+        className={`fixed top-0 left-0 w-[320px] h-[200px] sm:w-[380px] sm:h-[238px] rounded-2xl overflow-hidden pointer-events-none z-30 shadow-[0_25px_60px_rgba(0,0,0,0.95)] border border-[#ff5c3d]/30 bg-[#0a0a10] transition-opacity duration-300 hidden md:block ${
           activeProject ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
         }`}
       >
         {activeProject && (
-          <img
-            src={activeProject.image}
-            alt={activeProject.title}
-            className="w-full h-full object-cover filter contrast-105"
-          />
+          <div className="relative w-full h-full bg-[#0a0a10]">
+            <img
+              src={activeProject.image}
+              alt={activeProject.title}
+              className="w-full h-full object-cover filter contrast-105"
+            />
+          </div>
         )}
       </div>
 

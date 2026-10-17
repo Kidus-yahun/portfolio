@@ -55,7 +55,7 @@ export const siteConfig = {
       title: "Anti-Phish Defense Engine",
       category: "Cybersecurity Lab · AI / NLP · MV3",
       year: "2026",
-      image: `${base}projects/ecommerce.jpg`,
+      image: `${base}projects/antiphish.svg`,
       description: "Real-time browser extension that neutralizes phishing vectors using NLP, domain homoglyph checking, and live email forensics.",
       link: "https://github.com/Kidus-yahun/anti_phishing_extension"
     },
@@ -64,7 +64,7 @@ export const siteConfig = {
       title: "Ethio-Matrix",
       category: "EdTech & Full-Stack · Python & Django",
       year: "2026",
-      image: `${base}projects/expense.jpg`,
+      image: `${base}projects/ethiomatrix.svg`,
       description: "National Grade 12 educational assessment platform designed to deliver rapid test generation, analytics, and study aids.",
       link: "https://github.com/Kidus-yahun/Ethio-matrix"
     },
@@ -73,7 +73,7 @@ export const siteConfig = {
       title: "SmartBus Transit Logistics",
       category: "GIS & Civic Tech · Python",
       year: "2025",
-      image: `${base}projects/habitflow.jpg`,
+      image: `${base}projects/smartbus.svg`,
       description: "Map-based urban transit network facilitating real-time commuter station routing and schedule forecasting.",
       link: "https://github.com/Kidus-yahun/Smart-Bus-Booking"
     },
@@ -82,7 +82,7 @@ export const siteConfig = {
       title: "Anser AI Multimodal Solver",
       category: "AI Reasoning · Sub-400ms Engine",
       year: "2025",
-      image: `${base}projects/mindpixel.jpg`,
+      image: `${base}projects/anser.svg`,
       description: "High-speed multimodal AI reasoning extension with token extraction, non-blocking parallel consensus, and watchdog latency caps.",
       link: "https://github.com/Kidus-yahun/anser-extension"
     }

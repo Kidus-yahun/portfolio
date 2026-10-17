@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sbBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1210"/>
+      <stop offset="50%" stop-color="#060b09"/>
+      <stop offset="100%" stop-color="#081816"/>
+    </linearGradient>
+    <radialGradient id="emeraldGlow" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#sbBg)"/>
+  <circle cx="400" cy="200" r="260" fill="url(#emeraldGlow)"/>
+
+  <!-- Window Mockup -->
+  <rect x="70" y="55" width="660" height="390" rx="16" fill="#0c1412" stroke="#10b981" stroke-opacity="0.3" stroke-width="1.5"/>
+  <rect x="70" y="55" width="660" height="42" rx="16" fill="#111c19"/>
+  <rect x="70" y="85" width="660" height="12" fill="#111c19"/>
+
+  <!-- Window Dots -->
+  <circle cx="98" cy="76" r="5" fill="#ff5f56"/>
+  <circle cx="116" cy="76" r="5" fill="#ffbd2e"/>
+  <circle cx="134" cy="76" r="5" fill="#27c93f"/>
+
+  <!-- URL Bar -->
+  <rect x="160" y="65" width="340" height="22" rx="6" fill="#080e0c" stroke="#ffffff" stroke-opacity="0.1"/>
+  <text x="175" y="80" fill="#a7f3d0" font-family="monospace" font-size="11">smartbus://transit-gis/route-forecasting-telemetry</text>
+
+  <!-- Tag Pill -->
+  <rect x="575" y="66" width="135" height="20" rx="10" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-opacity="0.4"/>
+  <text x="590" y="80" fill="#6ee7b7" font-family="monospace" font-size="10" font-weight="bold">GIS TRANSIT TECH</text>
+
+  <!-- Main Content -->
+  <g transform="translate(100, 120)">
+    <text x="0" y="24" fill="#ffffff" font-family="sans-serif" font-size="22" font-weight="900">SmartBus Urban Transit Logistics</text>
+    <text x="0" y="44" fill="#34d399" font-family="monospace" font-size="12" font-weight="bold">REAL-TIME COMMUTER ROUTING &amp; GIS LOGISTICS ENGINE</text>
+
+    <!-- Map Route Graphic -->
+    <g transform="translate(0, 65)">
+      <rect x="0" y="0" width="600" height="160" rx="12" fill="#0e1815" stroke="#10b981" stroke-opacity="0.2"/>
+      
+      <!-- Grid Map Lines -->
+      <path d="M 0 40 L 600 40 M 0 80 L 600 80 M 0 120 L 600 120" stroke="#ffffff" stroke-opacity="0.04"/>
+      <path d="M 120 0 L 120 160 M 240 0 L 240 160 M 360 0 L 360 160 M 480 0 L 480 160" stroke="#ffffff" stroke-opacity="0.04"/>
+
+      <!-- Glowing Transit Route -->
+      <path d="M 40 120 L 140 80 L 260 90 L 380 45 L 480 70 L 560 40" 
+            stroke="#10b981" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M 40 120 L 140 80 L 260 90 L 380 45 L 480 70 L 560 40" 
+            stroke="#6ee7b7" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- Station Nodes -->
+      <circle cx="40" cy="120" r="7" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
+      <circle cx="140" cy="80" r="5" fill="#0e1815" stroke="#10b981" stroke-width="2"/>
+      <circle cx="260" cy="90" r="5" fill="#0e1815" stroke="#10b981" stroke-width="2"/>
+      <circle cx="380" cy="45" r="8" fill="#ff5c3d" stroke="#ffffff" stroke-width="2"/> <!-- Active Bus -->
+      <circle cx="480" cy="70" r="5" fill="#0e1815" stroke="#10b981" stroke-width="2"/>
+      <circle cx="560" cy="40" r="7" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
+
+      <!-- Active Vehicle Callout -->
+      <rect x="330" y="10" width="100" height="24" rx="6" fill="#ff5c3d"/>
+      <text x="340" y="26" fill="#000000" font-family="monospace" font-size="10" font-weight="bold">BUS #402 · 3 MIN</text>
+    </g>
+
+    <!-- Metrics Row -->
+    <g transform="translate(0, 240)">
+      <text x="0" y="14" fill="#a7f3d0" font-family="monospace" font-size="11">Station Network: Stadium Central ➔ Mexico ➔ Tor Hailoch ➔ Megenagna</text>
+      <text x="0" y="32" fill="#6b7280" font-family="monospace" font-size="11">STACK: Python · OpenStreetMap GIS · Geolocation SDK · Real-time Routing Heuristics</text>
+    </g>
+  </g>
+</svg>
