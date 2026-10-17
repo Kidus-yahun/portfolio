@@ -118,11 +118,24 @@ void main() {
 `;
 
 function loadImage(src) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const img = new Image();
+    img.crossOrigin = 'anonymous';
     img.decoding = 'async';
     img.onload = () => resolve(img);
-    img.onerror = reject;
+    img.onerror = () => {
+      console.warn('ParticleFace image load fallback:', src);
+      // Create lightweight fallback canvas so Promise.all never rejects
+      const canvas = document.createElement('canvas');
+      canvas.width = 100;
+      canvas.height = 100;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#ff5c3d';
+      ctx.fillRect(0, 0, 100, 100);
+      const fallbackImg = new Image();
+      fallbackImg.src = canvas.toDataURL();
+      fallbackImg.onload = () => resolve(fallbackImg);
+    };
     img.src = src;
   });
 }
@@ -343,13 +356,17 @@ export default function ParticleFace({
     gl.uniform2f(uniforms.win, TILE_PX / ATLAS_WIDTH, TILE_PX / ATLAS_HEIGHT);
 
     const recomputeParticles = () => {
+      if (!portraitImg) return;
       const anchorRect = anchor.getBoundingClientRect();
-      const w = anchorRect.width;
-      if (!portraitImg || w < 10 || Math.abs(w - cachedWidth) < 1) return;
+      const fallbackW = window.innerWidth < 640 ? 280 : window.innerWidth < 768 ? 340 : 420;
+      const w = anchorRect.width > 10 ? anchorRect.width : fallbackW;
+      if (Math.abs(w - cachedWidth) < 1 && particleCount > 0) return;
       cachedWidth = w;
 
       const canvasRect = canvas.getBoundingClientRect();
-      const frac = Math.max(0, Math.min(1, (canvasRect.bottom - anchorRect.top) / anchorRect.height));
+      const frac = anchorRect.height > 10
+        ? Math.max(0, Math.min(1, (canvasRect.bottom - anchorRect.top) / anchorRect.height))
+        : 1.0;
       const res = samplePortrait(portraitImg, w, frac);
 
       particleCount = res.count;
@@ -379,6 +396,10 @@ export default function ParticleFace({
     };
 
     const render = () => {
+      if (!particleCount) {
+        recomputeParticles();
+      }
+
       if (!particleCount || playStartRef.current === null) {
         gl.clear(gl.COLOR_BUFFER_BIT);
         return;
@@ -386,8 +407,8 @@ export default function ParticleFace({
 
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const canvasRect = canvas.getBoundingClientRect();
-      const renderW = Math.round(canvasRect.width * dpr);
-      const renderH = Math.round(canvasRect.height * dpr);
+      const renderW = Math.round((canvasRect.width || 420) * dpr);
+      const renderH = Math.round((canvasRect.height || 540) * dpr);
 
       if (canvas.width !== renderW || canvas.height !== renderH) {
         canvas.width = renderW;
@@ -398,7 +419,8 @@ export default function ParticleFace({
 
       const anchorRect = anchor.getBoundingClientRect();
       const now = performance.now() / 1000;
-      const scatter = isReducedMotion ? 0 : Math.min(1, Math.max(0, -canvasRect.top / (canvasRect.height * 0.7)));
+      const ch = canvasRect.height || 540;
+      const scatter = isReducedMotion ? 0 : Math.min(1, Math.max(0, -canvasRect.top / (ch * 0.7)));
 
       mousePos.x += (mousePos.targetX - mousePos.x) * 0.18;
       mousePos.y += (mousePos.targetY - mousePos.y) * 0.18;
@@ -407,13 +429,13 @@ export default function ParticleFace({
       gl.clearColor(0, 0, 0, 0);
       gl.clear(gl.COLOR_BUFFER_BIT);
 
-      gl.uniform2f(uniforms.res, canvasRect.width, canvasRect.height);
+      gl.uniform2f(uniforms.res, canvasRect.width || 420, canvasRect.height || 540);
       gl.uniform4f(
         uniforms.rect,
         anchorRect.left - canvasRect.left,
         anchorRect.top - canvasRect.top,
-        anchorRect.width,
-        anchorRect.height
+        anchorRect.width || 420,
+        anchorRect.height || 540
       );
       gl.uniform1f(uniforms.cell, cellPitch);
       gl.uniform1f(uniforms.dpr, dpr);
@@ -438,9 +460,14 @@ export default function ParticleFace({
 
     const observer = new IntersectionObserver(([entry]) => {
       isIntersecting = entry.isIntersecting;
-      updateTicker(isIntersecting && particleCount > 0);
+      updateTicker(isIntersecting);
     });
     observer.observe(canvas);
+
+    const resizeObserver = new ResizeObserver(() => {
+      recomputeParticles();
+    });
+    resizeObserver.observe(anchor);
 
     Promise.all([loadImage(src), Promise.all(thumbs.map(loadImage))])
       .then(([portrait, thumbImgs]) => {
@@ -464,7 +491,7 @@ export default function ParticleFace({
         gl.uniform1i(uniforms.atlas, 0);
 
         recomputeParticles();
-        updateTicker(isIntersecting && particleCount > 0);
+        updateTicker(isIntersecting);
       })
       .catch((err) => {
         console.error('ParticleFace asset error:', err);
@@ -480,6 +507,7 @@ export default function ParticleFace({
       destroyed = true;
       updateTicker(false);
       observer.disconnect();
+      resizeObserver.disconnect();
       if (isFinePointer) {
         window.removeEventListener('pointermove', onPointerMove);
         document.removeEventListener('pointerleave', onPointerLeave);

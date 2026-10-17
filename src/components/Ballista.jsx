@@ -233,7 +233,7 @@ export default function Ballista({
     setPhase('scrambling');
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*';
     let step = 0;
-    const totalSteps = 14;
+    const totalSteps = 12;
     const finalWord = targetWord;
 
     const interval = setInterval(() => {
@@ -254,17 +254,18 @@ export default function Ballista({
       if (step >= totalSteps) {
         clearInterval(interval);
         setDisplayText(finalWord);
-        startSplitAnimation();
+        setPhase('splitting');
       }
-    }, 45);
+    }, 40);
   };
 
-  // Split "KI" and "DUS" apart to reveal face
-  const startSplitAnimation = () => {
-    setPhase('splitting');
+  // Split "K_" and "D" apart to reveal face once elements mount
+  useEffect(() => {
+    if (phase !== 'splitting') return;
+
     const isMobile = window.innerWidth < 768;
-    const splitDistance = isMobile ? window.innerWidth * 0.25 : 220;
-    const liftY = window.innerHeight * (isMobile ? -0.28 : 0.22);
+    const splitDistance = isMobile ? window.innerWidth * 0.35 : 260;
+    const liftY = window.innerHeight * (isMobile ? -0.22 : 0.18);
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -273,22 +274,44 @@ export default function Ballista({
       }
     });
 
-    if (leftPartRef.current && rightPartRef.current) {
+    if (leftPartRef.current && rightPartRef.current && containerRef.current) {
       tl.to(leftPartRef.current, {
         x: -splitDistance,
         y: liftY,
-        duration: 1.4,
+        opacity: 0,
+        duration: 1.1,
         ease: 'power3.inOut'
-      }, 0.2);
+      }, 0.1);
 
       tl.to(rightPartRef.current, {
         x: splitDistance,
         y: liftY,
-        duration: 1.4,
+        opacity: 0,
+        duration: 1.1,
         ease: 'power3.inOut'
-      }, 0.2);
+      }, 0.1);
+
+      tl.to(containerRef.current, {
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power2.out'
+      }, 0.7);
+    } else {
+      setPhase('done');
+      onComplete?.();
     }
-  };
+
+    return () => tl.kill();
+  }, [phase, onComplete]);
+
+  // Failsafe timeout: never keep preloader on screen longer than 4.5s
+  useEffect(() => {
+    const failsafe = setTimeout(() => {
+      setPhase('done');
+      onComplete?.();
+    }, 4500);
+    return () => clearTimeout(failsafe);
+  }, [onComplete]);
 
   if (phase === 'done') {
     return null;

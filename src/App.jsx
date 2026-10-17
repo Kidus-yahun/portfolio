@@ -16,18 +16,16 @@ export default function App() {
 
   const handleIntroComplete = useCallback(() => {
     setIntroFinished(true);
+    setSiteRevealed(true);
+  }, []);
 
-    if (
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
-      typeof document.startViewTransition !== 'function'
-    ) {
+  // Failsafe timer: guarantee site is fully revealed even if user switches tabs
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIntroFinished(true);
       setSiteRevealed(true);
-      return;
-    }
-
-    document.startViewTransition(() => {
-      setSiteRevealed(true);
-    });
+    }, 4500);
+    return () => clearTimeout(timer);
   }, []);
 
   // Keyboard shortcut: Press ESC to skip intro at any time
@@ -46,29 +44,27 @@ export default function App() {
       {/* Custom Magnetic Cursor */}
       <CustomCursor />
 
-      {/* Kinetic Ballista Preloader Intro */}
+      {/* Main Portfolio Site - Initialized eagerly so WebGL and images load immediately */}
+      <main className={`relative z-10 transition-opacity duration-700 ${siteRevealed ? 'opacity-100' : 'opacity-0'}`}>
+        <Navbar />
+        <Hero ready={true} />
+        <About />
+        <Services />
+        <Project />
+        <Ricochet
+          lines={siteConfig.play.headline}
+          caption={siteConfig.play.caption}
+        />
+        <Contact />
+      </main>
+
+      {/* Kinetic Ballista Preloader Intro Overlay */}
       {!introFinished && (
         <Ballista
           word={siteConfig.wordmark}
           targetWord="KIDUS"
           onComplete={handleIntroComplete}
         />
-      )}
-
-      {/* Main Portfolio Site */}
-      {siteRevealed && (
-        <main className="relative z-10 animate-site-in">
-          <Navbar />
-          <Hero ready={siteRevealed} />
-          <About />
-          <Services />
-          <Project />
-          <Ricochet
-            lines={siteConfig.play.headline}
-            caption={siteConfig.play.caption}
-          />
-          <Contact />
-        </main>
       )}
 
       {/* Ambient Visual Grain & Vignette Overlays */}
