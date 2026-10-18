@@ -225,7 +225,7 @@ export default function TerminalModal({ isOpen, onClose }) {
         } else if (file === 'contact.txt') {
           responseItem = {
             type: 'text',
-            content: `Email: ${siteConfig.email}\nTelegram: https://t.me/gromata\nLocation: ${siteConfig.location}`
+            content: `Email: ${siteConfig.email}\nIdea Sharing Channel: https://t.me/KDCHEATCODE (@KDCHEATCODE)\nTelegram DM: https://t.me/gromata (@gromata)\nLocation: ${siteConfig.location}`
           };
         } else if (file === 'stack.txt') {
           responseItem = {

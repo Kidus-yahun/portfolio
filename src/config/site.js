@@ -17,9 +17,16 @@ export const siteConfig = {
   ],
   email: "yahunsewkidus@gmail.com",
   location: "Ethiopia 🇪🇹 · Open to Worldwide Remote",
+  telegramChannel: {
+    handle: "@KDCHEATCODE",
+    href: "https://t.me/KDCHEATCODE",
+    label: "Idea Sharing Channel",
+    description: "Ideas, creative dev experiments, cyber labs & tech breakdowns"
+  },
   socials: [
     { label: "GitHub", href: "https://github.com/Kidus-yahun" },
-    { label: "Telegram", href: "https://t.me/gromata" },
+    { label: "Idea Channel (@KDCHEATCODE)", href: "https://t.me/KDCHEATCODE" },
+    { label: "Telegram (DM)", href: "https://t.me/gromata" },
     { label: "Instagram", href: "https://www.instagram.com/kidus_ya3/" },
     { label: "Email", href: "mailto:yahunsewkidus@gmail.com" }
   ],

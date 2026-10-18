@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { siteConfig } from '../config/site';
-import { Mail, Send, MapPin, Copy, Check, ArrowUpRight } from 'lucide-react';
+import { Mail, Send, MapPin, Copy, Check, ArrowUpRight, Sparkles } from 'lucide-react';
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -35,7 +35,7 @@ export default function Contact() {
             Open for creative development, interactive web builds, full-stack systems, cybersecurity projects, and innovative contract collaborations.
           </p>
 
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-3.5">
             <a
               href={`mailto:${siteConfig.email}`}
               data-magnetic="0.3"
@@ -43,6 +43,16 @@ export default function Contact() {
             >
               <Mail className="w-4 h-4" />
               Send An Email
+            </a>
+            <a
+              href={siteConfig.telegramChannel?.href || "https://t.me/KDCHEATCODE"}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-magnetic="0.3"
+              className="px-6 py-3.5 rounded-full border border-[#ff5c3d]/40 bg-[#ff5c3d]/10 text-white text-xs font-mono tracking-widest uppercase inline-flex items-center gap-2 backdrop-blur-md hover:bg-[#ff5c3d] hover:text-black transition-all group"
+            >
+              <Sparkles className="w-4 h-4 text-[#ff5c3d] group-hover:text-black transition-colors" />
+              Idea Channel {siteConfig.telegramChannel?.handle || "@KDCHEATCODE"}
             </a>
             <a
               href="https://t.me/gromata"
@@ -95,10 +105,11 @@ export default function Contact() {
               </a>
             </div>
 
+            {/* Telegram Direct */}
             <div className="p-6 md:p-8 flex items-center justify-between hover:bg-white/[0.02] transition-colors">
               <div>
                 <span className="block text-[10px] font-mono uppercase tracking-widest text-gray-500 mb-1">
-                  Telegram
+                  Telegram (Direct Message)
                 </span>
                 <span className="text-sm md:text-base font-mono text-cyan-400">
                   @gromata
@@ -109,8 +120,40 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-white transition-colors"
+                title="Send a message on Telegram"
               >
                 <ArrowUpRight className="w-4 h-4 text-gray-400" />
+              </a>
+            </div>
+
+            {/* Dedicated Idea Sharing Channel */}
+            <div className="p-6 md:p-8 flex items-center justify-between bg-gradient-to-r from-[#ff5c3d]/[0.08] via-transparent to-transparent hover:bg-white/[0.03] transition-colors relative overflow-hidden group">
+              <div className="pr-4">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#ff7a5f] font-semibold flex items-center gap-1.5">
+                    <Sparkles className="w-3 h-3 text-[#ff5c3d]" />
+                    Idea Sharing Channel
+                  </span>
+                  <span className="px-2 py-0.5 rounded-full text-[9px] font-mono uppercase bg-[#ff5c3d]/20 text-[#ff7a5f] border border-[#ff5c3d]/30">
+                    Active Channel
+                  </span>
+                </div>
+                <span className="text-base md:text-lg font-mono font-bold text-white group-hover:text-[#ff7a5f] transition-colors block">
+                  {siteConfig.telegramChannel?.handle || "@KDCHEATCODE"}
+                </span>
+                <p className="text-xs text-gray-400 mt-1 font-light leading-relaxed">
+                  {siteConfig.telegramChannel?.description || "Ideas, creative dev experiments, cyber labs & tech breakdowns"}
+                </p>
+              </div>
+              <a
+                href={siteConfig.telegramChannel?.href || "https://t.me/KDCHEATCODE"}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-magnetic="0.3"
+                className="w-11 h-11 rounded-full border border-[#ff5c3d]/40 bg-[#ff5c3d]/10 flex items-center justify-center group-hover:bg-[#ff5c3d] group-hover:text-black group-hover:border-[#ff5c3d] transition-all shrink-0 shadow-[0_0_20px_rgba(255,92,61,0.2)]"
+                title="Join Idea Sharing Channel on Telegram"
+              >
+                <ArrowUpRight className="w-4 h-4 text-[#ff7a5f] group-hover:text-black transition-colors" />
               </a>
             </div>
 
