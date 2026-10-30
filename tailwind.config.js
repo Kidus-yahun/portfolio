@@ -7,8 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#050505',
-        surface: '#0d0d0d',
+        background: '#060913',
+        surface: '#0d111e',
+        midnight: '#060913',
+        electric: {
+          DEFAULT: '#0091ff',
+          hover: '#00a8ff',
+          glow: 'rgba(0, 145, 255, 0.4)'
+        },
         accent: {
           DEFAULT: '#ff5c3d',
           hover: '#ff7a5f',

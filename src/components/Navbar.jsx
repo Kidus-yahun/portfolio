@@ -86,7 +86,7 @@ export default function Navbar({ onOpenTerminal }) {
         <div
           className={`max-w-7xl mx-auto flex items-center justify-between px-6 py-3.5 rounded-full border transition-all duration-300 ${
             scrolled
-              ? 'bg-[#050505]/85 backdrop-blur-xl border-white/10 shadow-[0_12px_36px_rgba(0,0,0,0.85)]'
+              ? 'bg-[#060913]/85 backdrop-blur-xl border-white/10 shadow-[0_12px_36px_rgba(0,0,0,0.85)]'
               : 'bg-transparent border-transparent'
           }`}
         >
@@ -109,28 +109,28 @@ export default function Navbar({ onOpenTerminal }) {
             <a
               href="#about"
               data-magnetic="0.2"
-              className="hover:text-white hover:text-[#ff5c3d] transition-colors"
+              className="hover:text-[#0091ff] transition-colors"
             >
               About
             </a>
             <a
               href="#services"
               data-magnetic="0.2"
-              className="hover:text-white hover:text-[#ff5c3d] transition-colors"
+              className="hover:text-[#ff5c3d] transition-colors"
             >
               Services
             </a>
             <a
               href="#work"
               data-magnetic="0.2"
-              className="hover:text-white hover:text-[#ff5c3d] transition-colors"
+              className="hover:text-[#0091ff] transition-colors"
             >
               Work
             </a>
             <a
               href="#contact"
               data-magnetic="0.2"
-              className="hover:text-white hover:text-[#ff5c3d] transition-colors"
+              className="hover:text-[#ff5c3d] transition-colors"
             >
               Contact
             </a>
@@ -142,10 +142,10 @@ export default function Navbar({ onOpenTerminal }) {
               type="button"
               onClick={onOpenTerminal}
               data-magnetic="0.2"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#ff5c3d]/30 bg-[#ff5c3d]/10 hover:bg-[#ff5c3d]/20 text-[#ff7a5f] hover:text-white text-[11px] font-mono tracking-wider transition-all cursor-pointer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#0091ff]/30 bg-[#0091ff]/10 hover:bg-[#0091ff]/20 text-[#0091ff] hover:text-white text-[11px] font-mono tracking-wider transition-all cursor-pointer shadow-[0_0_15px_rgba(0,145,255,0.15)]"
               title="Open Terminal Shell (~ or Ctrl+K)"
             >
-              <Terminal className="w-3.5 h-3.5 text-[#ff5c3d]" />
+              <Terminal className="w-3.5 h-3.5 text-[#0091ff]" />
               <span>CLI</span>
               <kbd className="hidden md:inline text-[9px] px-1 py-0.2 rounded bg-white/10 text-gray-300 font-mono">~</kbd>
             </button>

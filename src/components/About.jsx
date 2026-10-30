@@ -54,18 +54,18 @@ export default function About() {
     >
       <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
         <div className="flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-[#ff5c3d]" />
-          <span className="text-xs font-mono uppercase tracking-[0.28em] text-gray-500">
+          <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#0091ff] to-[#ff5c3d] shadow-[0_0_8px_rgba(0,145,255,0.8)]" />
+          <span className="text-xs font-mono uppercase tracking-[0.28em] text-gray-400">
             Profile / Philosophy
           </span>
         </div>
 
         {/* Identity Badges */}
         <div className="flex flex-wrap items-center gap-2">
-          <span className="px-3 py-1 rounded-full text-[11px] font-mono tracking-wider uppercase bg-[#ff5c3d]/10 border border-[#ff5c3d]/30 text-[#ff7a5f]">
+          <span className="px-3 py-1 rounded-full text-[11px] font-mono tracking-wider uppercase bg-[#0091ff]/10 border border-[#0091ff]/30 text-[#0091ff]">
             Creative Developer
           </span>
-          <span className="px-3 py-1 rounded-full text-[11px] font-mono tracking-wider uppercase bg-white/[0.03] border border-white/10 text-gray-400">
+          <span className="px-3 py-1 rounded-full text-[11px] font-mono tracking-wider uppercase bg-[#ff5c3d]/10 border border-[#ff5c3d]/30 text-[#ff7a5f]">
             Cybersecurity Learner & Builder
           </span>
           <span className="px-3 py-1 rounded-full text-[11px] font-mono tracking-wider uppercase bg-white/[0.03] border border-white/10 text-gray-400">
@@ -75,9 +75,9 @@ export default function About() {
       </div>
 
       {/* Quote Banner */}
-      <div className="mb-10 inline-block px-4 py-2 rounded-xl border border-[#ff5c3d]/20 bg-[#ff5c3d]/5 backdrop-blur-md">
-        <p className="font-mono text-xs md:text-sm text-[#ff7a5f] tracking-wide">
-          <span className="text-white/40 mr-2">&gt;</span>
+      <div className="mb-10 inline-block px-4 py-2.5 rounded-xl border border-white/10 bg-gradient-to-r from-[#0091ff]/10 via-[#060913] to-[#ff5c3d]/10 backdrop-blur-md shadow-[0_0_30px_rgba(0,145,255,0.08)]">
+        <p className="font-mono text-xs md:text-sm text-gray-200 tracking-wide">
+          <span className="text-[#0091ff] mr-2">&gt;</span>
           "{siteConfig.philosophy}"
         </p>
       </div>
@@ -109,15 +109,15 @@ export default function About() {
 
       {/* Focus Pillars Bento */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 pt-10 border-t border-white/10 text-xs font-mono">
-        <div className="flex flex-col gap-2 p-5 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm hover:border-[#ff5c3d]/30 transition-colors">
-          <Sparkles className="w-5 h-5 text-[#ff5c3d] mb-1" />
+        <div className="flex flex-col gap-2 p-5 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm hover:border-[#0091ff]/40 hover:shadow-[0_0_30px_rgba(0,145,255,0.12)] transition-all">
+          <Sparkles className="w-5 h-5 text-[#0091ff] mb-1" />
           <span className="text-sm font-sans font-bold text-white">Creative Dev</span>
           <p className="text-gray-400 font-sans text-xs">
             Interactive web experiences, fluid motion, WebGL canvases & expressive UI design.
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 p-5 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm hover:border-[#ff5c3d]/30 transition-colors">
+        <div className="flex flex-col gap-2 p-5 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm hover:border-[#ff5c3d]/40 hover:shadow-[0_0_30px_rgba(255,92,61,0.12)] transition-all">
           <ShieldCheck className="w-5 h-5 text-[#ff5c3d] mb-1" />
           <span className="text-sm font-sans font-bold text-white">Cyber Labs & Defense</span>
           <p className="text-gray-400 font-sans text-xs">
@@ -125,15 +125,15 @@ export default function About() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 p-5 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm hover:border-[#ff5c3d]/30 transition-colors">
-          <Terminal className="w-5 h-5 text-[#ff5c3d] mb-1" />
+        <div className="flex flex-col gap-2 p-5 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm hover:border-[#0091ff]/40 hover:shadow-[0_0_30px_rgba(0,145,255,0.12)] transition-all">
+          <Terminal className="w-5 h-5 text-[#0091ff] mb-1" />
           <span className="text-sm font-sans font-bold text-white">Full-Stack Core</span>
           <p className="text-gray-400 font-sans text-xs">
             Python & Django architectures, scalable REST APIs, MySQL & MongoDB.
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 p-5 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm hover:border-[#ff5c3d]/30 transition-colors">
+        <div className="flex flex-col gap-2 p-5 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm hover:border-[#ff5c3d]/40 hover:shadow-[0_0_30px_rgba(255,92,61,0.12)] transition-all">
           <Globe className="w-5 h-5 text-[#ff5c3d] mb-1" />
           <span className="text-sm font-sans font-bold text-white">Mobile & Civic Tech</span>
           <p className="text-gray-400 font-sans text-xs">
@@ -142,14 +142,16 @@ export default function About() {
         </div>
       </div>
 
-      {/* Tech Stack Icons (Red & Black Only) */}
+      {/* Tech Stack Icons */}
       <div className="mt-14">
         <div className="flex items-center justify-between mb-6">
           <span className="text-[10px] font-mono uppercase tracking-[0.28em] text-gray-500">
             Languages & Toolchain
           </span>
-          <span className="text-[10px] font-mono text-[#ff5c3d]/80 uppercase tracking-widest">
-            Red & Black Spec
+          <span className="text-[10px] font-mono text-gray-400 uppercase tracking-widest flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0091ff]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#ff5c3d]" />
+            <span>Curated Toolchain</span>
           </span>
         </div>
 

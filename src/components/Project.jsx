@@ -5,20 +5,24 @@ import { ArrowUpRight } from 'lucide-react';
 export default function Project() {
   return (
     <section id="work" className="relative py-24 md:py-36 px-6 md:px-16 max-w-7xl mx-auto">
+      {/* Ambient background glows for Selected Work */}
+      <div className="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-[#0091ff]/8 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-[#ff5c3d]/8 rounded-full blur-[150px] pointer-events-none" />
+
       {/* Section Header */}
       <div className="flex flex-col lg:flex-row justify-between items-start w-full gap-8 lg:gap-16 mb-20 lg:mb-28">
         <div className="w-full lg:w-7/12">
           <div className="flex items-center gap-3 mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#ff5c3d]" />
-            <span className="text-xs font-mono uppercase tracking-[0.28em] text-gray-500">
+            <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#0091ff] to-[#ff5c3d] shadow-[0_0_8px_rgba(0,145,255,0.8)]" />
+            <span className="text-xs font-mono uppercase tracking-[0.28em] text-gray-400">
               Selected Work / Case Studies
             </span>
           </div>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase whitespace-nowrap">
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-700">
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#eef7ff] via-gray-200 to-gray-700">
               Selected
             </span>
-            <span className="font-light italic text-gray-400 lowercase font-serif pl-3 pt-2">
+            <span className="font-light italic text-transparent bg-clip-text bg-gradient-to-r from-[#0091ff] to-[#ff7a5f] lowercase font-serif pl-3 pt-2">
               work
             </span>
           </h2>
@@ -32,7 +36,7 @@ export default function Project() {
       </div>
 
       {/* Alternating Side-by-Side Projects Showcase */}
-      <div className="flex flex-col gap-24 lg:gap-36 w-full">
+      <div className="flex flex-col gap-24 lg:gap-36 w-full relative z-10">
         {siteConfig.projects.map((proj, idx) => {
           const isEven = idx % 2 === 0;
 
@@ -44,7 +48,11 @@ export default function Project() {
               } items-center justify-between gap-12 lg:gap-16 w-full group`}
             >
               {/* Visual Showcase Side */}
-              <div className="w-full lg:w-6/12 overflow-hidden relative aspect-[16/10] bg-[#0c0c12] rounded-2xl border border-white/10 group-hover:border-[#ff5c3d]/50 transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.85)] group-hover:shadow-[0_25px_60px_rgba(255,92,61,0.15)]">
+              <div className={`w-full lg:w-6/12 overflow-hidden relative aspect-[16/10] bg-[#070b16] rounded-2xl border border-white/10 ${
+                isEven
+                  ? 'group-hover:border-[#0091ff]/60 group-hover:shadow-[0_25px_60px_rgba(0,145,255,0.22)]'
+                  : 'group-hover:border-[#ff5c3d]/60 group-hover:shadow-[0_25px_60px_rgba(255,92,61,0.22)]'
+              } transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.85)]`}>
                 <a
                   href={proj.link}
                   target="_blank"
@@ -64,16 +72,20 @@ export default function Project() {
               {/* Information / Details Side */}
               <div className="w-full lg:w-5/12 flex flex-col items-start">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-[#ff5c3d] text-xs md:text-sm font-mono font-bold tracking-widest uppercase">
+                  <span className={`${
+                    isEven ? 'text-[#0091ff]' : 'text-[#ff5c3d]'
+                  } text-xs md:text-sm font-mono font-bold tracking-widest uppercase`}>
                     0{idx + 1}
                   </span>
-                  <span className="h-px w-8 bg-[#ff5c3d]/40" />
+                  <span className={`h-px w-8 ${isEven ? 'bg-[#0091ff]/40' : 'bg-[#ff5c3d]/40'}`} />
                   <span className="text-xs font-mono uppercase tracking-wider text-gray-400">
                     {proj.category}
                   </span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-white leading-[1.05] uppercase mb-4 group-hover:text-[#ff7a5f] transition-colors">
+                <h3 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-white leading-[1.05] uppercase mb-4 ${
+                  isEven ? 'group-hover:text-[#0091ff]' : 'group-hover:text-[#ff7a5f]'
+                } transition-colors`}>
                   <a href={proj.link} target="_blank" rel="noopener noreferrer">
                     {proj.title}
                   </a>
@@ -89,7 +101,11 @@ export default function Project() {
                     target="_blank"
                     rel="noopener noreferrer"
                     data-magnetic="0.25"
-                    className="cursor-pointer px-6 py-2.5 rounded-full border border-[#ff5c3d] bg-[#ff5c3d] text-black text-xs md:text-sm font-semibold tracking-wider hover:bg-[#ff7a5f] transition-all inline-flex items-center gap-2 shadow-[0_10px_25px_rgba(255,92,61,0.3)]"
+                    className={`cursor-pointer px-6 py-2.5 rounded-full border ${
+                      isEven
+                        ? 'border-[#0091ff] bg-[#0091ff] text-white hover:bg-[#00a8ff] shadow-[0_10px_25px_rgba(0,145,255,0.35)]'
+                        : 'border-[#ff5c3d] bg-[#ff5c3d] text-black hover:bg-[#ff7a5f] shadow-[0_10px_25px_rgba(255,92,61,0.3)]'
+                    } text-xs md:text-sm font-semibold tracking-wider transition-all inline-flex items-center gap-2`}
                   >
                     <span>View Project</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />

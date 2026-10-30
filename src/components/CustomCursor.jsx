@@ -104,7 +104,7 @@ export default function CustomCursor() {
         ref={cursorRingRef}
         className={`fixed top-0 left-0 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[width,height,background-color,border-color] duration-200 ease-out hidden md:block ${
           isHovered
-            ? 'w-12 h-12 border border-[#ff5c3d] bg-[#ff5c3d]/10'
+            ? 'w-12 h-12 border border-[#0091ff] bg-[#0091ff]/10 shadow-[0_0_20px_rgba(0,145,255,0.35)]'
             : 'w-7 h-7 border border-white/40 bg-transparent'
         }`}
       />

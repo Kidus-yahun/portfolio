@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 :root {
+  --midnight: #060913;
+  --electric: #0091ff;
+  --electric-hover: #00a8ff;
+  --electric-glow: rgba(0, 145, 255, 0.4);
   --accent: #ff5c3d;
   --accent-hover: #ff7a5f;
   --accent-glow: rgba(255, 92, 61, 0.4);
@@ -14,7 +18,7 @@
 }
 
 html, body {
-  background-color: #050505;
+  background-color: #060913;
   color: #ffffff;
   font-family: 'Space Grotesk', system-ui, sans-serif;
   overflow-x: hidden;
@@ -25,14 +29,78 @@ html, body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: #060913;
 }
 ::-webkit-scrollbar-thumb {
-  background: #262626;
+  background: linear-gradient(to bottom, #0091ff, #ff5c3d);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #404040;
+  background: linear-gradient(to bottom, #00a8ff, #ff7a5f);
+}
+
+/* Fluid Atmosphere & Radiant Gradients (Midnight Black + Electric Blue + Cantaloupe Red) */
+.ambient-radiance {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ambient-radiance::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130vw;
+  max-width: 1500px;
+  height: 90vh;
+  background: radial-gradient(
+    ellipse 65% 50% at 50% 20%,
+    rgba(0, 145, 255, 0.32) 0%,
+    rgba(0, 145, 255, 0.14) 40%,
+    rgba(255, 92, 61, 0.16) 65%,
+    transparent 85%
+  );
+  filter: blur(80px);
+}
+
+.ambient-radiance::after {
+  content: '';
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110vw;
+  max-width: 1400px;
+  height: 60vh;
+  background: radial-gradient(
+    ellipse 60% 45% at 50% 80%,
+    rgba(0, 145, 255, 0.12) 0%,
+    rgba(255, 92, 61, 0.14) 50%,
+    transparent 80%
+  );
+  filter: blur(100px);
+}
+
+/* Vertical Micro-Rib Texture as seen in FluidEdit design */
+.ambient-ribs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.045;
+  background-image: repeating-linear-gradient(
+    to right,
+    #ffffff 0px,
+    #ffffff 1px,
+    transparent 1px,
+    transparent 28px
+  );
+  mask-image: radial-gradient(ellipse 85% 65% at 50% 35%, black 25%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 35%, black 25%, transparent 85%);
 }
 
 /* Ambient Layers */

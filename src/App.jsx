@@ -57,7 +57,13 @@ export default function App() {
   }, [introFinished, isTerminalOpen, handleIntroComplete]);
 
   return (
-    <div className="relative min-h-screen bg-[#050505] text-white selection:bg-[#ff5c3d] selection:text-black">
+    <div className="relative min-h-screen bg-[#060913] text-white selection:bg-[#0091ff] selection:text-white">
+      {/* Ambient FluidEdit-Style Atmospheric Radiance & Textures */}
+      <div className="ambient-radiance" aria-hidden="true" />
+      <div className="ambient-ribs" aria-hidden="true" />
+      <div className="ambient-grain" aria-hidden="true" />
+      <div className="ambient-vignette" aria-hidden="true" />
+
       {/* Custom Magnetic Cursor */}
       <CustomCursor />
 
@@ -77,11 +83,11 @@ export default function App() {
           type="button"
           onClick={() => setIsTerminalOpen(true)}
           data-magnetic="0.3"
-          className="fixed bottom-6 right-6 z-40 flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#0a0a0c]/90 border border-[#ff5c3d]/40 shadow-[0_8px_30px_rgba(255,92,61,0.25)] hover:shadow-[0_8px_35px_rgba(255,92,61,0.5)] hover:border-[#ff5c3d] text-white text-xs font-mono tracking-wider transition-all backdrop-blur-md group cursor-pointer"
+          className="fixed bottom-6 right-6 z-40 flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#060913]/90 border border-[#0091ff]/40 shadow-[0_8px_30px_rgba(0,145,255,0.25),0_8px_30px_rgba(255,92,61,0.2)] hover:shadow-[0_8px_35px_rgba(0,145,255,0.5)] hover:border-[#0091ff] text-white text-xs font-mono tracking-wider transition-all backdrop-blur-md group cursor-pointer"
           title="Open Interactive Terminal (Press ~ or Ctrl+K)"
         >
-          <span className="w-2 h-2 rounded-full bg-[#ff5c3d] animate-pulse" />
-          <TerminalIcon className="w-3.5 h-3.5 text-[#ff5c3d] group-hover:rotate-12 transition-transform" />
+          <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#0091ff] to-[#ff5c3d] animate-pulse" />
+          <TerminalIcon className="w-3.5 h-3.5 text-[#0091ff] group-hover:rotate-12 transition-transform" />
           <span className="font-semibold text-gray-200 group-hover:text-white">CLI</span>
           <kbd className="hidden sm:inline text-[10px] text-gray-400 font-mono bg-white/10 px-1.5 py-0.5 rounded">~</kbd>
         </button>

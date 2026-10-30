@@ -8,11 +8,22 @@ const THEMES = {
     accent: '#ff5c3d',
     accentText: 'text-[#ff5c3d]',
     accentBg: 'bg-[#ff5c3d]',
-    border: 'border-[#ff5c3d]/30',
+    border: 'border-[#0091ff]/30',
     promptUser: 'text-[#ff5c3d]',
-    promptPath: 'text-indigo-400',
-    glow: 'shadow-[0_0_50px_rgba(255,92,61,0.25)]',
-    tag: 'border-[#ff5c3d]/40 text-[#ff7a5f]'
+    promptPath: 'text-[#0091ff]',
+    glow: 'shadow-[0_0_50px_rgba(0,145,255,0.2),0_0_50px_rgba(255,92,61,0.2)]',
+    tag: 'border-[#0091ff]/40 text-[#0091ff]'
+  },
+  electric: {
+    name: 'Electric Blue',
+    accent: '#0091ff',
+    accentText: 'text-[#0091ff]',
+    accentBg: 'bg-[#0091ff]',
+    border: 'border-[#0091ff]/30',
+    promptUser: 'text-[#0091ff]',
+    promptPath: 'text-[#ff5c3d]',
+    glow: 'shadow-[0_0_50px_rgba(0,145,255,0.3)]',
+    tag: 'border-[#0091ff]/40 text-[#0091ff]'
   },
   matrix: {
     name: 'Matrix',

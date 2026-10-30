@@ -13,13 +13,14 @@ export default function Contact() {
 
   return (
     <section id="contact" className="relative py-28 md:py-36 px-6 md:px-16 max-w-7xl mx-auto overflow-hidden">
-      {/* Background radial gradient */}
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#ff5c3d]/5 rounded-full blur-[140px] pointer-events-none" />
+      {/* Background FluidEdit atmospheric radiance */}
+      <div className="absolute top-1/4 -left-20 w-[550px] h-[550px] bg-[#0091ff]/10 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 -right-20 w-[550px] h-[550px] bg-[#ff5c3d]/10 rounded-full blur-[150px] pointer-events-none" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
         {/* Left Column: Heading & CTA */}
         <div className="lg:col-span-6 flex flex-col items-start">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md text-[11px] font-mono tracking-widest uppercase text-gray-300 mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md text-[11px] font-mono tracking-widest uppercase text-gray-300 mb-6 shadow-[0_0_20px_rgba(0,145,255,0.12)]">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 animate-halo" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
@@ -27,7 +28,7 @@ export default function Contact() {
             Available For Projects
           </div>
 
-          <h2 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[0.95] mb-6 text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-700">
+          <h2 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[0.95] mb-6 text-transparent bg-clip-text bg-gradient-to-b from-[#eef7ff] via-gray-200 to-gray-700">
             Let's build <br />something iconic.
           </h2>
 
