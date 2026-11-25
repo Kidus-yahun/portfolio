@@ -21,30 +21,21 @@ export default function Hero({ ready = true }) {
           <span className="will-change-transform">D</span>
         </div>
 
-        {/* Central Anchor Portrait & WebGL Particle Canvas */}
+        {/* Central Hero Portrait */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[52%] w-[270px] h-[350px] sm:w-[330px] sm:h-[430px] md:w-[400px] md:h-[520px] z-10 flex items-center justify-center">
-          {/* Fallback image */}
-          <img
-            ref={anchorRef}
-            src={`${import.meta.env.BASE_URL}hero_center.png`}
-            alt={siteConfig.name}
-            className="w-full h-full object-cover rounded-2xl invisible filter contrast-110 drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
-          />
-
-          {/* WebGL2 Particle Face Canvas */}
-          <ParticleFace
-            src={`${import.meta.env.BASE_URL}hero_center.png`}
-            thumbs={[
-              `${import.meta.env.BASE_URL}projects/antiphish.png`,
-              `${import.meta.env.BASE_URL}projects/ethiomatrix.png`,
-              `${import.meta.env.BASE_URL}projects/smartbus.png`,
-              `${import.meta.env.BASE_URL}projects/anser.png`
-            ]}
-            anchorRef={anchorRef}
-            play={ready}
-            label={siteConfig.name}
-            className="z-20"
-          />
+          <div className="relative w-full h-full rounded-2xl overflow-hidden border border-[#0091ff]/30 shadow-[0_25px_60px_rgba(0,0,0,0.95),0_0_50px_rgba(0,145,255,0.25)] group">
+            <img
+              ref={anchorRef}
+              src={`${import.meta.env.BASE_URL}hero_center.png`}
+              alt={siteConfig.name}
+              loading="eager"
+              decoding="async"
+              className="w-full h-full object-cover rounded-2xl filter contrast-105 group-hover:scale-105 transition-transform duration-700 ease-out"
+            />
+            {/* Subtle atmospheric sheen overlay blending with Electric Blue & Cantaloupe Red */}
+            <div className="absolute inset-0 rounded-2xl pointer-events-none bg-gradient-to-t from-[#060913]/60 via-transparent to-transparent opacity-80" />
+            <div className="absolute inset-0 rounded-2xl pointer-events-none border border-white/10 group-hover:border-[#0091ff]/50 transition-colors duration-500" />
+          </div>
         </div>
 
         {/* Floating Subtitle & Role Details */}
@@ -83,7 +74,7 @@ export default function Hero({ ready = true }) {
 
       {/* Scroll indicator */}
       <div className="relative z-20 mt-16 flex flex-col items-center gap-2 text-gray-500 text-[10px] font-mono tracking-widest uppercase animate-bounce">
-        <span>Scroll to disperse particles</span>
+        <span>Scroll to explore</span>
         <ArrowDown className="w-3.5 h-3.5 text-gray-400" />
       </div>
     </section>
