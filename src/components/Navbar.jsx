@@ -104,8 +104,8 @@ export default function Navbar({ onOpenTerminal }) {
             <span className="text-sm uppercase font-mono tracking-wider">K_D</span>
           </a>
 
-          {/* Original Tabs Restored (ABOUT, SERVICES, WORK, PLAY, CONTACT) */}
-          <nav className="flex items-center gap-6 sm:gap-8 md:gap-10 text-xs font-mono uppercase tracking-widest text-gray-400">
+          {/* Original Tabs Restored (ABOUT, SERVICES, WORK, CONTACT) */}
+          <nav className="hidden md:flex items-center gap-6 sm:gap-8 md:gap-10 text-xs font-mono uppercase tracking-widest text-gray-400">
             <a
               href="#about"
               data-magnetic="0.2"

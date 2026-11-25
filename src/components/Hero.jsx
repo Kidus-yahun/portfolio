@@ -21,36 +21,43 @@ export default function Hero({ ready = true }) {
           <span className="will-change-transform">D</span>
         </div>
 
-        {/* Central Hero Portrait */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[52%] w-[270px] h-[350px] sm:w-[330px] sm:h-[430px] md:w-[400px] md:h-[520px] z-10 flex items-center justify-center">
-          <div className="relative w-full h-full rounded-2xl overflow-hidden border border-[#0091ff]/30 shadow-[0_25px_60px_rgba(0,0,0,0.95),0_0_50px_rgba(0,145,255,0.25)] group">
-            <img
-              ref={anchorRef}
-              src={`${import.meta.env.BASE_URL}hero_center.png`}
-              alt={siteConfig.name}
-              loading="eager"
-              decoding="async"
-              className="w-full h-full object-cover rounded-2xl filter contrast-105 group-hover:scale-105 transition-transform duration-700 ease-out"
-            />
-            {/* Subtle atmospheric sheen overlay blending with Electric Blue & Cantaloupe Red */}
-            <div className="absolute inset-0 rounded-2xl pointer-events-none bg-gradient-to-t from-[#060913]/60 via-transparent to-transparent opacity-80" />
-            <div className="absolute inset-0 rounded-2xl pointer-events-none border border-white/10 group-hover:border-[#0091ff]/50 transition-colors duration-500" />
-          </div>
+        {/* Central Anchor Portrait & WebGL Particle Canvas */}
+        <div className="absolute top-[40%] sm:top-[44%] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[360px] sm:w-[330px] sm:h-[430px] md:w-[400px] md:h-[520px] z-10 flex items-center justify-center">
+          {/* Base Anchor Image (fallback if WebGL unsupported) */}
+          <img
+            ref={anchorRef}
+            src={`${import.meta.env.BASE_URL}hero_center.png`}
+            alt={siteConfig.name}
+            className="w-full h-full object-cover rounded-2xl invisible filter contrast-110 drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
+          />
+
+          {/* WebGL2 Particle Face Canvas - The Holographic Sprinkling Particle Matrix */}
+          <ParticleFace
+            src={`${import.meta.env.BASE_URL}hero_center.png`}
+            thumbs={[
+              `${import.meta.env.BASE_URL}projects/antiphish.png`,
+              `${import.meta.env.BASE_URL}projects/ethiomatrix.png`,
+              `${import.meta.env.BASE_URL}projects/smartbus.png`,
+              `${import.meta.env.BASE_URL}projects/anser.png`
+            ]}
+            anchorRef={anchorRef}
+            play={ready}
+            label={siteConfig.name}
+            className="z-20"
+          />
         </div>
 
         {/* Floating Subtitle & Role Details */}
-        <div className="relative z-20 mt-12 sm:mt-16 md:mt-24 flex flex-col items-center text-center max-w-xl px-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/15 bg-[#060913]/70 backdrop-blur-md text-xs font-mono text-gray-300 mb-4 shadow-[0_0_25px_rgba(0,145,255,0.18)]">
-            <Sparkles className="w-3.5 h-3.5 text-[#0091ff]" />
-            <span className="font-semibold text-white">{siteConfig.alias}</span>
+        <div className="relative z-20 mt-[230px] sm:mt-[270px] md:mt-[330px] flex flex-col items-center text-center max-w-xl px-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/15 bg-[#060913]/80 backdrop-blur-md text-xs font-mono text-gray-300 mb-4 shadow-[0_0_25px_rgba(0,145,255,0.18)]">
+            <Sparkles className="w-3.5 h-3.5 text-[#ff5c3d]" />
+            <span className="font-semibold text-white">{siteConfig.name}</span>
             <span className="text-white/40">·</span>
-            <span className="text-[#0091ff] font-medium">Creative Developer</span>
-            <span className="text-white/40">·</span>
-            <span className="text-[#ff7a5f]">Cyber Labs & Full-Stack</span>
+            <span className="text-gray-300 font-medium">{siteConfig.alias}</span>
           </div>
 
           <p className="text-gray-300 text-sm md:text-base font-light leading-relaxed mb-8">
-            {siteConfig.bio[0]}
+            I pioneer AI defense systems, cybersecurity solutions, and resilient full-stack applications with an ethical-first mindset.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
@@ -64,7 +71,7 @@ export default function Hero({ ready = true }) {
             <a
               href="#contact"
               data-magnetic="0.3"
-              className="px-7 py-3.5 rounded-full border border-[#0091ff]/30 text-white text-xs md:text-sm font-medium tracking-wider uppercase inline-flex items-center gap-2 backdrop-blur-md hover:border-[#0091ff] hover:text-[#0091ff] hover:shadow-[0_0_25px_rgba(0,145,255,0.3)] transition-all bg-white/[0.02]"
+              className="px-7 py-3.5 rounded-full border border-white/20 text-white text-xs md:text-sm font-medium tracking-wider uppercase inline-flex items-center gap-2 backdrop-blur-md hover:border-[#0091ff] hover:text-[#0091ff] hover:shadow-[0_0_25px_rgba(0,145,255,0.3)] transition-all bg-white/[0.03]"
             >
               Get In Touch
             </a>
@@ -74,7 +81,7 @@ export default function Hero({ ready = true }) {
 
       {/* Scroll indicator */}
       <div className="relative z-20 mt-16 flex flex-col items-center gap-2 text-gray-500 text-[10px] font-mono tracking-widest uppercase animate-bounce">
-        <span>Scroll to explore</span>
+        <span>Scroll to disperse particles</span>
         <ArrowDown className="w-3.5 h-3.5 text-gray-400" />
       </div>
     </section>
