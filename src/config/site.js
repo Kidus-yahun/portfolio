@@ -68,6 +68,15 @@ export const siteConfig = {
     },
     {
       id: "02",
+      title: "Past Exam Library & Focus Room",
+      category: "EdTech Platform · PWA & AI Coach · Node.js",
+      year: "2026",
+      image: `${base}projects/pastexam.png`,
+      description: "Intelligent, gamified examination archive and split-screen Focus Study Room for Ethiopian secondary students (Grades 9–12) with Socratic AI coaching, offline PWA caching, Pomodoro sprints, and interactive formula sheets.",
+      link: "https://github.com/Kidus-yahun/past-exam-library"
+    },
+    {
+      id: "03",
       title: "Ethio-Matrix",
       category: "EdTech & Full-Stack · Python & Django",
       year: "2026",
@@ -76,7 +85,7 @@ export const siteConfig = {
       link: "https://github.com/Kidus-yahun/Ethio-matrix"
     },
     {
-      id: "03",
+      id: "04",
       title: "SmartBus Ethiopia",
       category: "Smart Mobility · FastAPI, React & Flutter",
       year: "2025",
@@ -85,7 +94,7 @@ export const siteConfig = {
       link: "https://github.com/Kidus-yahun/Smart-Bus-Booking"
     },
     {
-      id: "04",
+      id: "05",
       title: "Anser AI Multimodal Solver",
       category: "AI Reasoning · Sub-400ms Engine",
       year: "2025",

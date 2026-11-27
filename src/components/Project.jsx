@@ -30,7 +30,7 @@ export default function Project() {
 
         <div className="w-full lg:w-5/12 flex flex-col items-start lg:pt-8">
           <p className="text-gray-400 text-sm md:text-base font-light leading-relaxed">
-            Featured technical projects across AI threat forensics, educational assessment platforms, urban GIS routing logistics, and high-speed multimodal solvers.
+            Featured technical projects across AI threat forensics, national exam platforms & PWA study environments, urban transit logistics, and high-speed multimodal solvers.
           </p>
         </div>
       </div>

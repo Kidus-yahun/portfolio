@@ -296,9 +296,9 @@ export default function ParticleFace({
   src = `${import.meta.env.BASE_URL}hero_center.png`,
   thumbs = [
     `${import.meta.env.BASE_URL}projects/antiphish.png`,
+    `${import.meta.env.BASE_URL}projects/pastexam.png`,
     `${import.meta.env.BASE_URL}projects/ethiomatrix.png`,
-    `${import.meta.env.BASE_URL}projects/smartbus.png`,
-    `${import.meta.env.BASE_URL}projects/anser.png`
+    `${import.meta.env.BASE_URL}projects/smartbus.png`
   ],
   anchorRef,
   play = true,
