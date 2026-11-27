@@ -22,7 +22,7 @@ export default function Hero({ ready = true }) {
         </div>
 
         {/* Central Anchor Portrait & WebGL Particle Canvas */}
-        <div className="absolute top-[40%] sm:top-[44%] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[360px] sm:w-[330px] sm:h-[430px] md:w-[400px] md:h-[520px] z-10 flex items-center justify-center">
+        <div className="absolute top-[40%] sm:top-[44%] md:top-[47%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[360px] sm:w-[330px] sm:h-[430px] md:w-[400px] md:h-[520px] z-10 flex items-center justify-center">
           {/* Base Anchor Image (fallback if WebGL unsupported) */}
           <img
             ref={anchorRef}
@@ -57,7 +57,7 @@ export default function Hero({ ready = true }) {
           </div>
 
           <p className="text-gray-300 text-sm md:text-base font-light leading-relaxed mb-8">
-            I pioneer AI defense systems, cybersecurity solutions, and resilient full-stack applications with an ethical-first mindset.
+            I engineer AI defense systems, cybersecurity solutions, and resilient full-stack applications with an ethical-first mindset.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">

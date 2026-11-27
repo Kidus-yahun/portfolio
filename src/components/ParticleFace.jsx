@@ -6,7 +6,7 @@ const ATLAS_HEIGHT = 640;
 const TILE_PX = 56;
 const DUST_RATIO = 0.08;
 
-const computeCellPitch = (width) => Math.min(6, Math.max(3.5, width / 200));
+const computeCellPitch = (width) => Math.min(5.2, Math.max(3.8, width / 78));
 
 const VERTEX_SHADER = `#version 300 es
 precision highp float;
@@ -72,7 +72,7 @@ void main() {
 
   float land  = smoothstep(0.55, 1.0, k);
   float speck = mix(2.4, 1.0, depth);
-  float tile  = uCell * (0.3 + 0.75 * bright);
+  float tile  = uCell * 0.90;
   float size  = mix(speck, tile, land);
 
   float dustA = dust ? mix(0.65, 0.35, smoothstep(1.5, 3.5, uReveal)) : 1.0;
@@ -107,9 +107,20 @@ void main() {
   float peak = max(max(c.r, c.g), max(c.b, 0.06));
   vec3 hue = c / peak;
   vec3 tile = mix(hue, min(c * 1.8, 1.0), 0.35);
-  tile = mix(tile, vec3(1.0), 0.15);
+  tile = mix(tile, vec3(1.0), 0.20);
   float twinkle = 0.88 + 0.22 * sin(uTime * 2.2 + vPhase * 47.0);
-  tile *= (0.12 + 0.95 * vBright) * twinkle;
+
+  // High contrast luminance for person vs background
+  // Background has bright ~ 0.55 - 0.75 -> shimmering blue/silver tiles
+  // Hair & sunglasses have bright ~ 0.02 - 0.10 -> deep dark tiles
+  // Skin highlights have bright ~ 0.6 - 0.9 -> sparkling face tiles
+  tile *= (0.04 + 1.15 * vBright) * twinkle;
+
+  // Crisp square tile with micro gap grout border
+  vec2 coord = abs(gl_PointCoord - 0.5) * 2.0;
+  float edge = max(coord.x, coord.y);
+  float border = smoothstep(0.96, 0.82, edge);
+  tile *= border;
 
   // Stardust / holographic diamond sparkle
   vec3 speck = vec3(0.85, 0.94, 1.0);
@@ -145,10 +156,10 @@ function createDefaultAtlasCanvas() {
   const halfH = ATLAS_HEIGHT / 2;
 
   const gradients = [
-    ['#0091ff', '#061a40', '#00e5ff'],
-    ['#ff5c3d', '#3d0d00', '#ff8566'],
-    ['#00a8ff', '#07162c', '#ffffff'],
-    ['#818cf8', '#111827', '#60a5fa']
+    ['#38bdf8', '#031738', '#bae6fd'],
+    ['#0091ff', '#0f172a', '#e0f2fe'],
+    ['#818cf8', '#020617', '#c7d2fe'],
+    ['#60a5fa', '#082f49', '#ffffff']
   ];
 
   gradients.forEach((colors, idx) => {
@@ -182,6 +193,9 @@ function buildAtlasCanvas(images) {
         sx * nw, sy * nh, sw * nw, sh * nh,
         (idx % 2) * halfW, Math.floor(idx / 2) * halfH, halfW, halfH
       );
+      // Soft cyber blue & ice glaze to maintain unified matrix palette
+      ctx.fillStyle = 'rgba(0, 145, 255, 0.22)';
+      ctx.fillRect((idx % 2) * halfW, Math.floor(idx / 2) * halfH, halfW, halfH);
     } catch (e) {}
   });
   return canvas;
@@ -236,25 +250,26 @@ function samplePortrait(img, width) {
       const blue = data[idx + 2];
       const alpha = data[idx + 3] / 255;
 
-      // Filter out neutral studio grey background so only the silhouette is rendered
-      const isBg = (red > 80 && red < 135) &&
-                   (green > 80 && green < 135) &&
-                   (blue > 80 && blue < 140) &&
-                   Math.abs(red - green) < 10 &&
-                   Math.abs(green - blue) < 10 &&
-                   Math.abs(red - blue) < 12;
-
-      if (isBg || alpha < 0.2) continue;
+      if (alpha < 0.1) continue;
 
       const lum = (0.2126 * red + 0.7152 * green + 0.0722 * blue) / 255;
-      // High contrast for face features, skin highlights & sunglasses
-      const bright = Math.min(1.0, Math.max(0.08, lum * 1.25));
+
+      // High contrast separation matching user reference mosaic:
+      // Dark areas (hair, sunglasses, deep shadows, shirt) stay deeply dark
+      // Light areas (background matrix, skin highlights, chain) are bright and glistening
+      let bright;
+      if (lum < 0.20) {
+        bright = (lum / 0.20) * 0.06;
+      } else {
+        bright = 0.40 + Math.pow((lum - 0.20) / 0.80, 0.75) * 0.60;
+      }
+
       addParticle((c + 0.5) / cols, (r + 0.5) / rows, bright, false);
     }
   }
 
   const count = home.length / 2;
-  const dustCount = Math.round(count * DUST_RATIO);
+  const dustCount = Math.round(count * 0.03);
   for (let i = 0; i < dustCount; i++) {
     addParticle(0.5, 0.5, 0.4, true);
   }
